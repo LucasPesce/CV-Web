@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* MODO CLARO */
+  :root {
+    --bg-primary: #FAFAFA; 
+    --bg-secondary: #cdcdcd; 
+    --text-main: #0A0A0A; 
+    --text-dim: #434343; 
+    --accent: #1351bd; 
+    --accent-hover: #023c91; 
+  }
+
+  /* MODO OSCURO */
+  .dark {
+    --bg-primary: #0A0A0A; /* Gris abismal */
+    --bg-secondary: #2a2a2a; /* Gris oscuro */
+    --text-main: #F5F5F5; /* Blanco apagado */
+    --text-dim: #c4c3c3; /* Gris claro */
+    --accent: #ff2f89; 
+    --accent-hover: #c31561; 
+  }
+}
+
+body {
+  @apply bg-primary text-textMain font-sans antialiased transition-colors duration-300;
+}
+
