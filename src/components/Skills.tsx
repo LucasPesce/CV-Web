@@ -1,5 +1,5 @@
-import { FaReact, FaGitAlt, FaGithub, FaNodeJs, FaDatabase, FaBrain } from "react-icons/fa";
-import { SiTailwindcss, SiVite, SiDotnet, SiMysql, SiScrumalliance } from "react-icons/si";
+import { FaReact, FaGitAlt, FaGithub, FaNodeJs, FaDatabase } from "react-icons/fa";
+import { SiTailwindcss, SiVite, SiScrumalliance } from "react-icons/si";
 import { MdDevices, MdOutlineRateReview, MdApi, MdDesignServices } from "react-icons/md";
 import { HiSparkles } from "react-icons/hi";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -15,7 +15,7 @@ const Skills = () => {
     const titleStyle = "text-textMain font-semibold text-sm md:text-base tracking-wide group-hover:text-accent transition-colors duration-500 text-center";
 
     return (
-        <section id="skills" className="relative py-20 px-4 md:px-10 lg:px-20 overflow-hidden">
+        <section id="skills" className="relative py-20 px-8 md:px-20 lg:px-32 overflow-hidden">
 
             {/* ORBE DE LUZ AMBIENTAL */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accent/30 dark:bg-accent/15 blur-[100px] md:blur-[120px] rounded-full pointer-events-none z-0 transition-colors duration-700"></div>

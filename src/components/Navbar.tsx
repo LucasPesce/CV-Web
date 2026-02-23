@@ -13,10 +13,10 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Inicio', href: '#home' },
-        { name: 'Sobre Mí', href: '#about' },
         { name: 'Habilidades', href: '#skills' },
         { name: 'Proyectos', href: '#projects' },
-        { name: 'Experiencia', href: '#experience' },
+        { name: 'Sobre Mí', href: '#about' },
+        { name: 'Formación', href: '#education' },
     ];
 
     return (
