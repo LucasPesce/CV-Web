@@ -5,10 +5,15 @@ const About = () => {
         <section id="about" className="relative py-20 px-8 md:px-20 lg:px-32">
 
             {/* Título de la sección */}
-            <div className="flex items-center gap-4 mb-16">
-                <span className="w-8 h-1 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]"></span>
-                <h2 className="text-3xl md:text-4xl font-bold text-textMain tracking-tight">Sobre mí</h2>
-            </div>
+                <div className="mb-16 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4">
+                    {/* Raya lateral: Visible solo en PC (Escritorio) */}
+                    <span className="hidden md:block w-10 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]"></span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-textMain text-center md:text-left">
+                        Sobre Mí
+                    </h2>
+                    {/* Raya inferior: Visible solo en Móvil (Celular) */}
+                    <span className="md:hidden w-16 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)] mt-1"></span>
+                </div>
 
             <div className="flex flex-col md:flex-row items-start gap-16">
 

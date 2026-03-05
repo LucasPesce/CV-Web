@@ -2,6 +2,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Skills from './components/Skills';
 import About from './components/About';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           <About />
         </div>
         {/* <Projects id="projects" /> */}
+        <div id="Footer">
+          <Footer />
+        </div>
       </div>
     </main>
   );
