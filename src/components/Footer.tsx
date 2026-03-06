@@ -41,7 +41,7 @@ const Footer = () => {
             <div className="border-t border-black/10 dark:border-white/5 pt-8 flex flex-col items-center justify-center gap-6">
                 
                 <div className="text-textDim text-sm font-medium text-center">
-                    &copy; {currentYear} Luc. Todos los derechos reservados.
+                    &copy; {currentYear} Luc Pesce. Todos los derechos reservados.
                 </div>
 
                 <div className="flex items-center gap-6">
@@ -88,5 +88,6 @@ const Footer = () => {
         </footer>
     );
 };
+
 
 export default Footer;
