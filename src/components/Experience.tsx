@@ -4,13 +4,13 @@ const Experience = () => {
             title: "Logística y Toma de Decisiones",
             period: "2021 — Presente",
             skill: "Optimización de Procesos",
-            description: "Gestión operativa basada en la toma de decisiones ante imprevistos. Resolución de problemas en tiempo real y coordinación de flujos de trabajo dinámicos, priorizando la eficiencia frente a variables críticas del entorno."
+            description: "Gestión operativa basada en la toma de decisiones ante escenarios imprevistos. Resolución de problemas en tiempo real y coordinación de flujos de trabajo dinámicos, priorizando la eficiencia técnica y operativa."
         },
         {
             title: "Soporte Técnico IT (ISP)",
             period: "Redes y Conectividad",
             skill: "Troubleshooting de Sistemas",
-            description: "Diagnóstico y resolución de fallas en dispositivos de enlace y servicios de conectividad para proveedores de internet (ISP). Configuración de hardware y soporte técnico enfocado en la estabilidad de la red."
+            description: "Diagnóstico y resolución de fallas en dispositivos y servicios de conectividad para proveedores de internet (ISP). Configuración de hardware y soporte técnico enfocado en garantizar la estabilidad de la red."
         },
         {
             title: "Hardware y Mantenimiento",
@@ -22,7 +22,7 @@ const Experience = () => {
             title: "Diseño Visual y Estética UI",
             period: "Competencia Complementaria",
             skill: "Diseño de Interfaces",
-            description: "Aplicación de criterios estéticos y de composición en productos digitales. Mi trayectoria en diseño gráfico asegura que el desarrollo Frontend sea funcional, prolijo y visualmente equilibrado."
+            description: "Aplicación de criterios estéticos y de composición en el desarrollo de presentaciones de productos. Mi trayectoria en diseño gráfico complementa el desarrollo Frontend, asegurando interfaces funcionales, prolijas y visualmente equilibradas."
         }
     ];
 
