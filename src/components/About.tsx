@@ -73,7 +73,7 @@ const About = () => {
                         <div className="border-t border-black/10 dark:border-white/5 w-1/4"></div>
 
                         <p className="text-justify">
-                            Complemento mi perfil técnico con una mentalidad orientada a la disciplina y la resolución de problemas. Mi interés por la filosofía y la psicología me permite abordar el desarrollo de software con una visión más integral, entendiendo que detrás de cada línea de código hay una solución para personas reales.
+                            Más allá del código, busco un equilibrio en mi día a día a través del entrenamiento diario, con disciplina y dedicación para mantenerme enfocado. En mi tiempo libre disfruto del anime y los videojuegos, especialmente RPGs y Sandbox, los cuales alimentan mi curiosidad por cómo se desarrollan mundos tan fantásticos e historias memorables. Soy además un lector aficionado a temas como la filosofía, la política y la psicología, buscando siempre entender mejor el mundo que me rodea para lograr una visión más integral y amplia de los problemas que resolvemos con el software.
                         </p>
 
                         {/* Etiquetas Técnicas en Español */}
