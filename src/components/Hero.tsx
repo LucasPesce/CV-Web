@@ -22,7 +22,7 @@ const Hero = () => {
         visible: { opacity: 1, display: "inline-block" }
     };
 
-    // Función mágica para agrupar letras en palabras y evitar que se rompan a la mitad
+    // Función para agrupar letras en palabras
     const renderTypingText = (text: string) => {
         return text.split(" ").map((word, wordIndex, array) => (
             <span key={wordIndex} className="inline-block whitespace-nowrap">
@@ -31,13 +31,24 @@ const Hero = () => {
                         {char}
                     </motion.span>
                 ))}
-                {/* Agregamos el espacio animado después de cada palabra, excepto en la última */}
                 {wordIndex !== array.length - 1 && (
                     <motion.span variants={typingLetter}>&nbsp;</motion.span>
                 )}
             </span>
         ));
     };
+
+    // Arreglo de botones para renderizado dinámico (DRY - Don't Repeat Yourself)
+    const actionButtons = [
+        { id: 'email', label: 'Email', icon: FaEnvelope, href: `mailto:${header.email}`, target: '_self' },
+        { id: 'whatsapp', label: 'WhatsApp', icon: FaWhatsapp, href: header.whatsapp, target: '_blank' },
+        { id: 'github', label: 'GitHub', icon: FaGithub, href: `https://${header.github}`, target: '_blank' },
+        { id: 'cv', label: 'CV', icon: FaFileDownload, href: miCV, target: '_blank' },
+        { id: 'linkedin', label: 'LinkedIn', icon: FaLinkedin, href: "https://www.linkedin.com/in/lucaspesce/", target: '_blank' }
+    ];
+
+    // Clases del botón: Fusión del responsivo del Hero + estilo de tarjeta de Proyectos
+    const buttonClass = "flex items-center justify-center gap-2 w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 rounded-xl border border-black/10 dark:border-white/10 text-sm font-bold text-textMain bg-black/5 dark:bg-white/5 hover:border-accent/50 hover:bg-accent/10 hover:text-accent hover:shadow-[0_0_20px_-5px_var(--accent)] transition-all duration-300 shadow-sm";
 
     return (
         <section id="home" className="min-h-[80vh] flex flex-col justify-center items-center md:items-start px-8 md:px-20 lg:px-32 bg-primary pt-28 md:pt-32 pb-12 overflow-hidden">
@@ -83,62 +94,29 @@ const Hero = () => {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="w-full flex flex-col items-center md:items-start"            >
+                className="w-full flex flex-col items-center md:items-start"            
+            >
                 <p className="text-textDim text-lg md:text-xl max-w-2xl mb-10 leading-relaxed text-justify">
                     {summary}
                 </p>
 
-                {/* BOTONERA RESPONSIVA: Íconos en móvil, texto completo en escritorio */}
+                {/* BOTONERA RESPONSIVA DINÁMICA */}
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 w-full mt-4">
-                    <a
-                        href={`mailto:${header.email}`}
-                        className="w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 border-2 border-accent text-accent font-semibold rounded hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                        aria-label="Email"
-                    >
-                        <FaEnvelope className="text-xl md:text-base" />
-                        <span className="hidden md:inline">Email</span>
-                    </a>
-                    <a
-                        href={header.whatsapp}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 border-2 border-accent text-accent font-semibold rounded hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                        aria-label="WhatsApp"
-                    >
-                        <FaWhatsapp className="text-xl md:text-base" />
-                        <span className="hidden md:inline">WhatsApp</span>
-                    </a>
-                    <a
-                        href={`https://${header.github}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 border-2 border-accent text-accent font-semibold rounded hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                        aria-label="GitHub"
-                    >
-                        <FaGithub className="text-xl md:text-base" />
-                        <span className="hidden md:inline">GitHub</span>
-                    </a>
-
-                    <a
-                        href={miCV}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 border-2 border-accent text-accent font-semibold rounded hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                        aria-label="CV"
-                    >
-                        <FaFileDownload className="text-xl md:text-base" />
-                        <span className="hidden md:inline">CV</span>
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/lucaspesce/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 md:w-auto md:h-auto md:px-8 md:py-3 border-2 border-accent text-accent font-semibold rounded hover:bg-accent hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-                        aria-label="LinkedIn"
-                    >
-                        <FaLinkedin className="text-xl md:text-base" />
-                        <span className="hidden md:inline">LinkedIn</span>
-                    </a>
+                    {actionButtons.map((btn) => (
+                        <motion.a
+                            key={btn.id}
+                            href={btn.href}
+                            target={btn.target}
+                            rel={btn.target === '_blank' ? "noopener noreferrer" : undefined}
+                            aria-label={btn.label}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={buttonClass}
+                        >
+                            <btn.icon className="text-xl md:text-base" />
+                            <span className="hidden md:inline">{btn.label}</span>
+                        </motion.a>
+                    ))}
                 </div>
             </motion.div>
         </section>

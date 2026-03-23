@@ -17,8 +17,8 @@ const Navbar = () => {
         { name: 'Habilidades', href: '#skills' },
         { name: 'Sobre Mí', href: '#about' },
         { name: 'Formación', href: '#education' },
-        { name: 'Experiencia', href: '#experience' }, // Nueva sección integrada
-        // { name: 'Proyectos', href: '#projects' }, // Mantenemos el comentario por ahora
+        { name: 'Experiencia', href: '#experience' }, 
+        { name: 'Proyectos', href: '#projects' }, 
     ];
 
     return (

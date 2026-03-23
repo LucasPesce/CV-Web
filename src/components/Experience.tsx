@@ -1,5 +1,14 @@
+import { motion, type Variants } from 'framer-motion';
+
+interface ExperienceItem {
+    title: string;
+    period: string;
+    skill: string;
+    description: string;
+}
+
 const Experience = () => {
-    const experiences = [
+    const experiences: ExperienceItem[] = [
         {
             title: "Logística y Toma de Decisiones",
             period: "2021 — Presente",
@@ -26,27 +35,54 @@ const Experience = () => {
         }
     ];
 
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 15 },
+        visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { duration: 0.4, ease: "easeOut" } 
+        }
+    };
+
     return (
         <section id="experience" className="py-20 px-8 md:px-20 lg:px-32">
 
-            <div className="mb-16 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4">
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="mb-16 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4"
+            >
                 <span className="hidden md:block w-10 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]"></span>
                 <h2 className="text-3xl md:text-4xl font-bold text-textMain text-center md:text-left uppercase tracking-tight">
                     Experiencia Profesional Complementaria
                 </h2>
                 <span className="md:hidden w-16 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)] mt-1"></span>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl">
+            <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl"
+            >
                 {experiences.map((exp, index) => (
-                    <div
+                    <motion.div
                         key={index}
+                        variants={cardVariants}
                         className="group relative p-8 rounded-2xl transition-all duration-300
-                                   /* Modo Claro: Gris Slate-200 sólido para que se note el bloque */
                                    bg-slate-200/70 border border-slate-300 shadow-sm
-                                   /* Modo Oscuro: Transparencia elegante */
                                    dark:bg-white/5 dark:border-white/10 dark:shadow-none
-                                   /* Hover */
                                    hover:border-accent/50 hover:shadow-md dark:hover:border-accent/50"
                     >
                         <div className="flex justify-between items-start mb-4">
@@ -68,9 +104,9 @@ const Experience = () => {
                         <p className="text-textDim text-sm md:text-base leading-relaxed text-justify">
                             {exp.description}
                         </p>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };
