@@ -87,13 +87,13 @@ const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={cardVariants} className={cardStyle}><FaNodeJs className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Node.js</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><MdApi className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">APIs REST</h3></motion.div>
+                    <motion.div variants={cardVariants} className={cardStyle}><MdApi className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">API REST</h3></motion.div>
                     <motion.div variants={cardVariants} className={cardStyle}><SiVite className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Vite</h3></motion.div>
                     <motion.div variants={cardVariants} className={cardStyle}><MdOutlineRateReview className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent text-center">Code Review</h3></motion.div>
                     
                     <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
                         <MdDesignServices className={iconStyle} />
-                        <h3 className={titleStyle}>Diseño UI</h3>
+                        <h3 className={titleStyle}>Diseño UX/UI</h3>
                     </motion.div>
 
                     <motion.div variants={cardVariants} className={cardStyle}><MdDevices className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Responsive</h3></motion.div>

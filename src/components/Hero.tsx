@@ -94,7 +94,7 @@ const Hero = () => {
                 }}
                 initial="hidden"
                 animate="visible"
-                className="w-full flex flex-col items-center md:items-start"            
+                className="w-full flex flex-col items-center md:items-start"
             >
                 <p className="text-textDim text-lg md:text-xl max-w-2xl mb-10 leading-relaxed text-justify">
                     {summary}
@@ -113,7 +113,18 @@ const Hero = () => {
                             whileTap={{ scale: 0.95 }}
                             className={buttonClass}
                         >
-                            <btn.icon className="text-xl md:text-base" />
+                            {/* Lógica para el icono de CV en móvil */}
+                            {btn.id === 'cv' ? (
+                                <>
+                                    <span className="md:hidden font-black text-[11px] border-2 border-current px-1 rounded-md leading-none py-0.5 tracking-tighter">
+                                        CV
+                                    </span>
+                                    <btn.icon className="hidden md:block text-base" />
+                                </>
+                            ) : (
+                                <btn.icon className="text-xl md:text-base" />
+                            )}
+
                             <span className="hidden md:inline">{btn.label}</span>
                         </motion.a>
                     ))}
