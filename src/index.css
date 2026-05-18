@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,5 +27,33 @@
 
 body {
   @apply bg-primary text-textMain font-sans antialiased transition-colors duration-300;
+}
+
+/* Estilos personalizados para el carrusel de proyectos */
+.carrusel-proyectos {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+/* Chrome, Edge y Safari */
+.carrusel-proyectos::-webkit-scrollbar {
+  height: 8px; 
+}
+
+.carrusel-proyectos::-webkit-scrollbar-track {
+  background: transparent; 
+  margin: 0 20px; 
+}
+
+.carrusel-proyectos::-webkit-scrollbar-thumb {
+  background-color: var(--accent); 
+  border-radius: 20px; 
+  opacity: 0.7;
+}
+
+.carrusel-proyectos::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+  
 }
 
