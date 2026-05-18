@@ -28,7 +28,7 @@ Portafolio web interactivo desarrollado bajo el paradigma de **Single Page Appli
 * **Estilos:** Tailwind CSS, CSS Custom Properties (Variables para theming).
 * **Animaciones:** Framer Motion.
 * **Íconos:** React Icons.
-* **Despliegue:** GitHub Pages (o Vercel/Netlify, según corresponda).
+* **Despliegue:** GitHub Pages.
 
 ---
 
@@ -37,5 +37,40 @@ Portafolio web interactivo desarrollado bajo el paradigma de **Single Page Appli
 Si deseas clonar este proyecto para explorarlo en un entorno de desarrollo local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/lucaspesce/CV-Web.git](https://github.com/lucaspesce/CV-Web.git)
+        git clone [https://github.com/lucaspesce/CV-Web.git](https://github.com/lucaspesce/CV-Web.git)
+
+2. **Navegar al directorio:**
+        cd CV-Web
+
+3. **Instalar dependencias:**
+        npm install
+
+4. **Iniciar el servidor de desarrollo:**
+        npm run dev
+
+*El proyecto estará disponible en `http://localhost:5173` (o el puerto configurado por Vite).*
+
+---
+
+## 📁 Estructura del Proyecto
+
+Breve descripción de la organización del código fuente:
+
+    src/
+     ├── components/       # Componentes de UI modulares
+     ├── data/             # Archivos TypeScript con la información estática
+     ├── assets/           # Imágenes, íconos y recursos estáticos
+     ├── App.tsx           # Punto de entrada principal de la SPA
+     └── index.css         # Estilos globales y configuración de Tailwind
+
+---
+
+## 👨‍💻 Autor
+
+**Lucas Baquero Lazcano (Luc Pesce)**
+* Analista en Sistemas | Frontend Developer
+* [LinkedIn](https://www.linkedin.com/in/lucaspesce/)
+* [GitHub](https://github.com/lucaspesce)
+
+---
+*Diseñado y desarrollado con dedicación para reflejar crecimiento profesional continuo.*
