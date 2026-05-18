@@ -67,7 +67,7 @@ Breve descripción de la organización del código fuente:
 
 ## 👨‍💻 Autor
 
-**Lucas Baquero Lazcano (Luc Pesce)**
+**Luc Pesce**
 * Analista en Sistemas | Frontend Developer
 * [LinkedIn](https://www.linkedin.com/in/lucaspesce/)
 * [GitHub](https://github.com/lucaspesce)
