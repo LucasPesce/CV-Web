@@ -62,6 +62,6 @@ export const projectsData: Project[] = [
       "Físicas 2D (D3.js)",
       "Procesamiento DOCX (Mammoth)",
     ],
-    githubUrl: "https://github.com/LucasPesce/novel-world-architect",
+    githubUrl: "https://github.com/LucasPesce/Novel-asistente-literario-con-Gemini",
   },
 ];
