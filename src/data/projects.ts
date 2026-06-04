@@ -42,4 +42,26 @@ export const projectsData: Project[] = [
     ],
     githubUrl: "https://github.com/LucasPesce/TaxPro-TaxCalculator",
   },
+  {
+    id: "novel-asistente-literario",
+    title: "Novel: Asistente Literario de IA",
+    subtitle: "Aplicación Web Local-First con Sincronización Cloud",
+    status: "En Desarrollo",
+    description:
+      "Asistente de escritura y diseño de tramas literarias potenciado por Inteligencia Artificial (Gemini). A partir del análisis secuencial de los capítulos, el sistema extrae de forma automática personajes, lugares y elementos de lore para consolidar una Biblia de Mundo dinámica. Cuenta con un motor de almacenamiento híbrido (Local-First mediante File System Access API para guardar archivos directamente en la PC del usuario y sincronización con Google Drive y Firebase), un gráfico estelar de relaciones interactivo renderizado mediante simulaciones de fuerzas físicas de D3.js y un canal de chat conversacional continuo con contexto de la obra. Integra la arquitectura de seguridad BYOK (Bring Your Own Key) para resguardar la privacidad y los costos de las claves de IA a nivel de cliente.",
+    tags: [
+      "Análisis Funcional",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Integración de IA (Gemini)",
+      "Local-First (FSA API)",
+      "IndexedDB",
+      "Sincronización (Google Drive)",
+      "Seguridad (BYOK)",
+      "Físicas 2D (D3.js)",
+      "Procesamiento DOCX (Mammoth)",
+    ],
+    githubUrl: "https://github.com/LucasPesce/novel-world-architect",
+  },
 ];

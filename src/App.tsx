@@ -7,8 +7,6 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 
-// import Projects from './components/Projects';
-
 function App() {
   return (
     <main className="bg-primary min-h-screen">
@@ -48,9 +46,3 @@ function App() {
 }
 
 export default App;
-
-/*
-        <div id="projects">
-          <Projects/>
-        </div>
-*/
