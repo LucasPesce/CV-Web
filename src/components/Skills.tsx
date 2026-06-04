@@ -5,40 +5,54 @@ import { MdDevices, MdOutlineRateReview, MdApi, MdDesignServices } from "react-i
 import { HiSparkles } from "react-icons/hi";
 import { TbBrandCSharp } from "react-icons/tb";
 
+/**
+ * Componente Skills (Habilidades Técnicas)
+ * Renderiza una grilla estática de habilidades técnicas con efectos de hover y animaciones de entrada.
+ */
 const Skills = () => {
+    // ==========================================
+    // ESTILOS DE UI (CONFIGURACIÓN)
+    // ==========================================
     const cardStyle = "relative bg-gradient-to-br from-black/5 to-transparent dark:from-white/5 dark:to-transparent backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 md:transition-all md:duration-500 md:hover:border-accent/50 md:hover:shadow-[0_0_30px_-5px_var(--accent)] group overflow-hidden shadow-sm";
     const iconStyle = "text-4xl text-textDim group-hover:text-accent transition-all duration-500 group-hover:scale-110";
     const titleStyle = "text-textMain font-semibold text-sm md:text-base tracking-wide group-hover:text-accent transition-colors duration-500 text-center";
 
+    // ==========================================
+    // CONFIGURACIÓN DE ANIMACIONES
+    // ==========================================
     const gridVariants: Variants = {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.08 
+                staggerChildren: 0.08
             }
         }
     };
 
     const cardVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8, y: 20 },
-        visible: { 
-            opacity: 1, 
-            scale: 1, 
+        visible: {
+            opacity: 1,
+            scale: 1,
             y: 0,
-            transition: { 
-                type: "spring", 
-                stiffness: 80, 
-                damping: 15 
+            transition: {
+                type: "spring",
+                stiffness: 80,
+                damping: 15
             }
         }
     };
 
+    // ==========================================
+    // RENDERIZADO
+    // ==========================================
+
     return (
         <section id="skills" className="relative py-20 px-8 md:px-20 lg:px-32 bg-backgroundMain overflow-hidden">
-            
+
             <div className="relative z-10">
                 {/* Título de la sección */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -52,7 +66,7 @@ const Skills = () => {
                 </motion.div>
 
                 {/* --- BENTO GRID ANIMADO --- */}
-                <motion.div 
+                <motion.div
                     variants={gridVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -90,7 +104,7 @@ const Skills = () => {
                     <motion.div variants={cardVariants} className={cardStyle}><MdApi className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">API REST</h3></motion.div>
                     <motion.div variants={cardVariants} className={cardStyle}><SiVite className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Vite</h3></motion.div>
                     <motion.div variants={cardVariants} className={cardStyle}><MdOutlineRateReview className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent text-center">Code Review</h3></motion.div>
-                    
+
                     <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
                         <MdDesignServices className={iconStyle} />
                         <h3 className={titleStyle}>Diseño UX/UI</h3>
