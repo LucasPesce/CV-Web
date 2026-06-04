@@ -1,8 +1,18 @@
 import { motion, type Variants } from 'framer-motion';
 import meImg from '../assets/me.png';
 
+/**
+ * Componente About (Sobre Mí)
+ * Presenta una biografía, intereses y habilidades del perfil.
+ * Utiliza animaciones de entrada independientes (Framer Motion) para separar la carga visual de la imagen y el texto.
+ */
 const About = () => {
-    // Imagen desde la izquierda
+    
+    // ==========================================
+    // CONFIGURACIÓN DE ANIMACIONES (VARIANTS)
+    // ==========================================
+
+    // Define la entrada de la fotografía: deslizamiento desde la izquierda con un sutil efecto de escala.
     const imageVariants: Variants = {
         hidden: { opacity: 0, x: -50, scale: 0.95 },
         visible: { 
@@ -13,7 +23,8 @@ const About = () => {
         }
     };
 
-    // Texto desde la derecha
+    // Define la entrada del bloque de texto: deslizamiento desde la derecha.
+    // Incluye un delay (0.2s) para que aparezca una fracción de segundo después de la imagen.
     const textVariants: Variants = {
         hidden: { opacity: 0, x: 50 },
         visible: { 
@@ -23,25 +34,32 @@ const About = () => {
         }
     };
 
+    // ==========================================
+    // RENDERIZADO DEL COMPONENTE
+    // ==========================================
     return (
         <section id="about" className="relative py-20 px-8 md:px-20 lg:px-32 overflow-hidden">
 
+            {/* ENCABEZADO DE LA SECCIÓN */}
             <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true }} // La animación ocurre solo la primera vez que el elemento entra en pantalla
                 className="mb-16 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4"
             >
+                {/* Línea decorativa lateral (Visible en PC) */}
                 <span className="hidden md:block w-10 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]"></span>
                 <h2 className="text-3xl md:text-4xl font-bold text-textMain text-center md:text-left">
                     Sobre Mí
                 </h2>
+                {/* Línea decorativa inferior (Visible en Celular) */}
                 <span className="md:hidden w-16 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)] mt-1"></span>
             </motion.div>
 
+            {/* CONTENEDOR PRINCIPAL: GRID FLEXIBLE */}
             <div className="flex flex-col md:flex-row items-start gap-12 lg:gap-20">
 
-                {/* Columna Imagen (Izquierda) */}
+                {/* COLUMNA IZQUIERDA: Fotografía */}
                 <motion.div 
                     variants={imageVariants}
                     initial="hidden"
@@ -52,11 +70,12 @@ const About = () => {
                     <img
                         src={meImg}
                         alt="Luc - Analista en Sistemas"
+                        // La imagen inicia en escala de grises y transiciona a color completo mediante hover
                         className="w-64 md:w-80 h-auto rounded-2xl object-cover grayscale transition-all duration-700 hover:grayscale-0 border border-black/5 dark:border-white/5 shadow-xl"
                     />
                 </motion.div>
 
-                {/* Columna Texto (Derecha) */}
+                {/* COLUMNA DERECHA: Texto descriptivo y Tags */}
                 <motion.div 
                     variants={textVariants}
                     initial="hidden"
@@ -66,17 +85,20 @@ const About = () => {
                 >
                     <div className="space-y-8 text-textDim leading-relaxed text-lg md:text-xl font-light">
                         
+                        {/* Párrafo 1: Formación Técnica */}
                         <p className="text-justify">
                             Próximo a graduarme como <span className="font-bold text-textMain">Analista en Sistemas</span>, mi formación me brindó el marco teórico sobre desarrollo y bases de datos, encontrando mi vocación en el <span className="font-bold text-textMain">Frontend</span>. Me adapto a las nuevas tecnologías, utilizando la <span className="font-bold text-textMain">Inteligencia Artificial</span> como un aliado estratégico para optimizar el flujo de trabajo, permitiéndome enfocar los esfuerzos en la lógica, el diseño y una implementación robusta.
                         </p>
 
+                        {/* Separador Visual Corto */}
                         <div className="border-t border-black/10 dark:border-white/5 w-1/4"></div>
 
+                        {/* Párrafo 2: Intereses Personales y Habilidades Blandas */}
                         <p className="text-justify">
                             Más allá del código, busco un equilibrio en mi día a día a través del entrenamiento diario, con disciplina y dedicación para mantenerme enfocado. En mi tiempo libre disfruto del anime y los videojuegos, especialmente RPGs y Sandbox, los cuales alimentan mi curiosidad por cómo se desarrollan mundos tan fantásticos e historias memorables. Soy además un lector aficionado a temas como la filosofía, la política y la psicología, buscando siempre entender mejor el mundo que me rodea para lograr una visión más integral y amplia de los problemas que resolvemos con el software.
                         </p>
 
-                        {/* Etiquetas Técnicas en Español */}
+                        {/* Bloque de Etiquetas: Renderizado dinámico de habilidades clave */}
                         <div className="flex flex-wrap gap-2 pt-2">
                             {['React', 'TypeScript', 'SQL', 'Diseño UI', 'C# .NET', 'IA'].map((tag) => (
                                 <span key={tag} className="text-xs font-mono px-3 py-1 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-textDim italic">

@@ -1,5 +1,8 @@
 import { motion, type Variants } from 'framer-motion';
 
+// ==========================================
+// INTERFACES Y TIPADO
+// ==========================================
 interface EducationItem {
     title: string;
     institution: string;
@@ -7,7 +10,18 @@ interface EducationItem {
     isCurrent: boolean;
 }
 
+/**
+ * Componente Education (Formación Académica)
+ * Renderiza una línea de tiempo animada con la trayectoria educativa del perfil.
+ * Incluye un footer secundario para la sección de Idiomas.
+ */
 const Education = () => {
+    
+    // ==========================================
+    // DATOS DE LA LÍNEA DE TIEMPO
+    // Nota: Si este arreglo crece mucho en el futuro, se puede extraer a 'src/data/education.ts' 
+    // al igual que hicimos con projectsData para mantener el componente más limpio.
+    // ==========================================
     const educationData: EducationItem[] = [
         {
             title: "Analista en Sistemas",
@@ -29,16 +43,22 @@ const Education = () => {
         }
     ];
 
+    // ==========================================
+    // CONFIGURACIÓN DE ANIMACIONES (VARIANTS)
+    // ==========================================
+
+    // Variante padre: Controla la cascada de animaciones de la lista completa.
     const listVariants: Variants = {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 1.5,
-                delayChildren: 0.5
+                staggerChildren: 1.5, // Tiempo entre la aparición de cada ítem
+                delayChildren: 0.5    // Retraso inicial antes de empezar a mostrar los ítems
             }
         }
     };
 
+    // Variante para cada ítem individual de la línea de tiempo.
     const itemVariants: Variants = {
         hidden: {},
         visible: {
@@ -48,6 +68,7 @@ const Education = () => {
         }
     };
 
+    // Variante para los puntos indicadores (dots) en la línea: Efecto rebote (spring).
     const dotWrapperVariants: Variants = {
         hidden: { scale: 0, opacity: 0 },
         visible: { 
@@ -57,6 +78,7 @@ const Education = () => {
         }
     };
 
+    // Variante para el contenido de texto: Deslizamiento desde la izquierda.
     const contentVariants: Variants = {
         hidden: { opacity: 0, x: -40 },
         visible: { 
@@ -66,9 +88,13 @@ const Education = () => {
         }
     };
 
+    // ==========================================
+    // RENDERIZADO DEL COMPONENTE
+    // ==========================================
     return (
         <section id="education" className="py-20 px-8 md:px-20 lg:px-32">
             
+            {/* ENCABEZADO DE LA SECCIÓN */}
             <motion.div 
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -82,8 +108,10 @@ const Education = () => {
                 <span className="md:hidden w-16 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)] mt-1"></span>
             </motion.div>
 
+            {/* CONTENEDOR PRINCIPAL: LÍNEA DE TIEMPO */}
             <div className="max-w-4xl relative ml-4 md:ml-0 pl-8 mb-12">
                 
+                {/* Eje vertical de la línea de tiempo (Se "dibuja" hacia abajo) */}
                 <motion.div 
                     initial={{ height: 0 }}
                     whileInView={{ height: "100%" }}
@@ -92,6 +120,7 @@ const Education = () => {
                     className="absolute left-0 top-0 w-[2px] bg-blue-200 dark:bg-accent/20"
                 ></motion.div>
 
+                {/* Lista de instituciones */}
                 <motion.div 
                     variants={listVariants}
                     initial="hidden"
@@ -102,12 +131,14 @@ const Education = () => {
                     {educationData.map((item, index) => (
                         <motion.div key={index} variants={itemVariants} className="relative">
                             
+                            {/* Punto indicador en la línea de tiempo */}
                             <motion.div 
                                 variants={dotWrapperVariants} 
                                 className="absolute -left-[39px] top-1"
                             >
                                 <motion.span 
                                     className={`block w-4 h-4 rounded-full bg-accent ${item.isCurrent ? 'shadow-[0_0_10px_var(--accent)]' : ''}`}
+                                    // Efecto de pulso infinito para mantener la tarjeta dinámica
                                     animate={{
                                         scale: [1, 1.3, 1],
                                         opacity: [0.6, 1, 0.6]
@@ -121,6 +152,7 @@ const Education = () => {
                                 ></motion.span>
                             </motion.div>
                             
+                            {/* Contenido de la tarjeta de educación */}
                             <motion.div variants={contentVariants} className="flex flex-col gap-1">
                                 <h3 className="text-xl md:text-2xl font-bold text-textMain leading-tight">
                                     {item.title}
@@ -137,6 +169,7 @@ const Education = () => {
                 </motion.div>
             </div>
 
+            {/* SECCIÓN SECUNDARIA: IDIOMAS */}
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
