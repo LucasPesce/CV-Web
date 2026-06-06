@@ -42,7 +42,7 @@ const Experience = () => {
             >
                 <span className="hidden md:block w-10 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]"></span>
                 <h2 className="text-3xl md:text-4xl font-bold text-textMain text-center md:text-left uppercase tracking-tight">
-                    Experiencia Profesional Complementaria
+                    Experiencia Profesional
                 </h2>
                 <span className="md:hidden w-16 h-1.5 bg-accent rounded-full shadow-[0_0_10px_var(--accent)] mt-1"></span>
             </motion.div>
