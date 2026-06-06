@@ -11,9 +11,9 @@ export const experiences: ExperienceItem[] = [
   {
     title: "Desarrollo de Software Freelance",
     skill: "Soluciones Full-Stack & Arquitectura",
-    period: "DESARROLLO & PRODUCTO",
+    period: "DESARROLLO & MANTENIMIENTO",
     description:
-      "Desarrollo de sistemas a medida para clientes reales (Tesis de grado) y aplicaciones de gestión comercial. Diseño de arquitectura, modelado de datos y programación de interfaces interactivas para proyectos independientes, fusionando lógica de backend con sólidos criterios de diseño UX/UI.",
+      "Desarrollo y mantenimiento de soluciones de software a medida, adaptándome a los requerimientos técnicos y funcionales específicos de cada cliente. Gestiono desde la arquitectura y lógica de datos hasta la interfaz de usuario.",
   },
   {
     title: "Soporte Técnico IT (ISP)",
