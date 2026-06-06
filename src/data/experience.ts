@@ -1,33 +1,39 @@
+// Interfaz que define la estructura estricta de cada experiencia
 export interface ExperienceItem {
-    title: string;
-    period: string;
-    skill: string;
-    description: string;
+  title: string;
+  skill: string;
+  period: string; // Se utiliza para el tag superior derecho (ej: GESTIÓN & PROCESOS)
+  description: string;
 }
 
+// Array de datos centralizado con tu información real
 export const experiences: ExperienceItem[] = [
-    {
-        title: "Logística y Toma de Decisiones",
-        period: "GESTIÓN & PROCESOS",
-        skill: "Optimización de Procesos",
-        description: "Gestión operativa basada en la toma de decisiones ante escenarios imprevistos. Resolución de problemas en tiempo real y coordinación de flujos de trabajo dinámicos, priorizando la eficiencia técnica y operativa."
-    },
-    {
-        title: "Soporte Técnico IT (ISP)",
-        period: "REDES & CONECTIVIDAD",
-        skill: "Troubleshooting de Sistemas",
-        description: "Diagnóstico y resolución de fallas en dispositivos y servicios de conectividad para proveedores de internet (ISP). Configuración de hardware y soporte técnico enfocado en garantizar la estabilidad de la red."
-    },
-    {
-        title: "Hardware y Mantenimiento",
-        period: "SOPORTE & HARDWARE",
-        skill: "Diagnóstico Técnico",
-        description: "Reparación, ensamblado y mantenimiento preventivo de equipos de computación. Detección de fallas a nivel de componentes y optimización de rendimiento en sistemas operativos."
-    },
-    {
-        title: "Diseño Visual y Estética UI",
-        period: "DISEÑO & UX/UI",
-        skill: "Diseño de Interfaces",
-        description: "Aplicación de criterios estéticos y de composición en el desarrollo de presentaciones de productos. Mi trayectoria en diseño gráfico complementa el desarrollo Frontend, asegurando interfaces funcionales, prolijas y visualmente equilibradas."
-    }
+  {
+    title: "Desarrollo de Software Freelance",
+    skill: "Soluciones Full-Stack & Arquitectura",
+    period: "DESARROLLO & PRODUCTO",
+    description:
+      "Desarrollo de sistemas a medida para clientes reales (Tesis de grado) y aplicaciones de gestión comercial. Diseño de arquitectura, modelado de datos y programación de interfaces interactivas para proyectos independientes, fusionando lógica de backend con sólidos criterios de diseño UX/UI.",
+  },
+  {
+    title: "Soporte Técnico IT (ISP)",
+    skill: "Troubleshooting de Sistemas",
+    period: "REDES & CONECTIVIDAD",
+    description:
+      "Diagnóstico y resolución de fallas en dispositivos y servicios de conectividad para proveedores de internet (ISP). Configuración de hardware y soporte técnico enfocado en garantizar la estabilidad de la red.",
+  },
+  {
+    title: "Hardware y Mantenimiento",
+    skill: "Diagnóstico Técnico",
+    period: "SOPORTE & HARDWARE",
+    description:
+      "Reparación, ensamblado y mantenimiento preventivo de equipos de computación. Detección de fallas a nivel de componentes y optimización de rendimiento en sistemas operativos.",
+  },
+  {
+    title: "Logística y Toma de Decisiones",
+    skill: "Optimización de Procesos",
+    period: "GESTIÓN & PROCESOS",
+    description:
+      "Gestión operativa basada en la toma de decisiones ante escenarios imprevistos. Resolución de problemas en tiempo real y coordinación de flujos de trabajo dinámicos, priorizando la eficiencia técnica y operativa.",
+  },
 ];

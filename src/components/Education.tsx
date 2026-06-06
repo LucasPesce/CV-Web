@@ -1,48 +1,13 @@
 import { motion, type Variants } from 'framer-motion';
-
-// ==========================================
-// INTERFACES Y TIPADO
-// ==========================================
-interface EducationItem {
-    title: string;
-    institution: string;
-    description: string;
-    isCurrent: boolean;
-}
+import { educationData, languagesData } from '../data/education';
 
 /**
  * Componente Education (Formación Académica)
  * Renderiza una línea de tiempo animada con la trayectoria educativa del perfil.
- * Incluye un footer secundario para la sección de Idiomas.
+ * Incluye un footer secundario dinámico para la sección de Idiomas.
  */
 const Education = () => {
     
-    // ==========================================
-    // DATOS DE LA LÍNEA DE TIEMPO
-    // Nota: Si este arreglo crece mucho en el futuro, se puede extraer a 'src/data/education.ts' 
-    // al igual que hicimos con projectsData para mantener el componente más limpio.
-    // ==========================================
-    const educationData: EducationItem[] = [
-        {
-            title: "Analista en Sistemas",
-            institution: "Colegio Universitario IES Siglo 21",
-            description: "Formación técnica con un fuerte enfoque académico en Estructuras de Datos y Programación Orientada a Objetos (C#). Especialización en el diseño y administración de bases de datos con MS SQL Server, abarcando desde consultas avanzadas hasta la gestión de seguridad y backups. Sólidos fundamentos en desarrollo web y resolución de problemas mediante lógica aplicada.",
-            isCurrent: true 
-        },
-        {
-            title: "Especialización en Desarrollo Front-end",
-            institution: "Alura Latam & Ticmas",
-            description: "Formación intensiva de más de 300 horas cubriendo React, JavaScript ES6+, maquetación avanzada y optimización de interfaces responsivas.",
-            isCurrent: false
-        },
-        {
-            title: "Datos y Lógica de Programación",
-            institution: "Alura Latam & Argentina Programa",
-            description: "Capacitación en procesamiento de datos con Python, diseño de bases de datos relacionales con MySQL y fundamentos de lógica algorítmica.",
-            isCurrent: false
-        }
-    ];
-
     // ==========================================
     // CONFIGURACIÓN DE ANIMACIONES (VARIANTS)
     // ==========================================
@@ -120,7 +85,7 @@ const Education = () => {
                     className="absolute left-0 top-0 w-[2px] bg-blue-200 dark:bg-accent/20"
                 ></motion.div>
 
-                {/* Lista de instituciones */}
+                {/* Lista de instituciones iterando sobre educationData */}
                 <motion.div 
                     variants={listVariants}
                     initial="hidden"
@@ -181,10 +146,15 @@ const Education = () => {
                     <h4 className="text-lg font-bold text-textMain uppercase tracking-widest">Idiomas</h4>
                     <div className="flex items-center gap-3">
                         <span className="h-px w-8 bg-accent/50 hidden md:block"></span>
-                        <p className="text-textDim text-sm md:text-base">
-                            Inglés <span className="text-accent font-semibold ml-2">Nivel A2</span> 
-                            <span className="text-textDim/60 ml-1">(Básico - Intermedio)</span>
-                        </p>
+                        
+                        {/* Iteración sobre languagesData para mantener escalabilidad */}
+                        {languagesData.map((lang, index) => (
+                            <p key={index} className="text-textDim text-sm md:text-base">
+                                {lang.language} <span className="text-accent font-semibold ml-2">{lang.level}</span> 
+                                <span className="text-textDim/60 ml-1">{lang.description}</span>
+                            </p>
+                        ))}
+
                     </div>
                 </div>
             </motion.div>
