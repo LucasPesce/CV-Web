@@ -1,21 +1,18 @@
 import { motion, type Variants } from 'framer-motion';
-import { FaReact, FaGitAlt, FaGithub, FaNodeJs, FaDatabase } from "react-icons/fa";
-import { SiTailwindcss, SiVite, SiScrumalliance } from "react-icons/si";
-import { MdDevices, MdOutlineRateReview, MdApi, MdDesignServices } from "react-icons/md";
-import { HiSparkles } from "react-icons/hi";
-import { TbBrandCSharp } from "react-icons/tb";
+import { skillsData, iconMap } from '../data/skills';
 
 /**
  * Componente Skills (Habilidades Técnicas)
- * Renderiza una grilla estática de habilidades técnicas con efectos de hover y animaciones de entrada.
+ * Renderiza una grilla tipo Bento consumiendo los datos estáticos,
+ * preservando las clases y layouts individuales de cada tarjeta.
  */
 const Skills = () => {
+    
     // ==========================================
-    // ESTILOS DE UI (CONFIGURACIÓN)
+    // CLASES BASE COMUNES
     // ==========================================
-    const cardStyle = "relative bg-gradient-to-br from-black/5 to-transparent dark:from-white/5 dark:to-transparent backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 md:transition-all md:duration-500 md:hover:border-accent/50 md:hover:shadow-[0_0_30px_-5px_var(--accent)] group overflow-hidden shadow-sm";
-    const iconStyle = "text-4xl text-textDim group-hover:text-accent transition-all duration-500 group-hover:scale-110";
-    const titleStyle = "text-textMain font-semibold text-sm md:text-base tracking-wide group-hover:text-accent transition-colors duration-500 text-center";
+    const cardBaseStyle = "relative bg-gradient-to-br from-black/5 to-transparent dark:from-white/5 dark:to-transparent backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 md:transition-all md:duration-500 md:hover:border-accent/50 md:hover:shadow-[0_0_30px_-5px_var(--accent)] group overflow-hidden shadow-sm";
+    const iconBaseStyle = "text-4xl text-textDim group-hover:text-accent transition-all duration-500 group-hover:scale-110";
 
     // ==========================================
     // CONFIGURACIÓN DE ANIMACIONES
@@ -23,36 +20,27 @@ const Skills = () => {
     const gridVariants: Variants = {
         hidden: {},
         visible: {
-            transition: {
-                staggerChildren: 0.08
-            }
+            transition: { staggerChildren: 0.08 }
         }
     };
 
     const cardVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8, y: 20 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            transition: {
-                type: "spring",
-                stiffness: 80,
-                damping: 15
-            }
+        visible: { 
+            opacity: 1, scale: 1, y: 0,
+            transition: { type: "spring", stiffness: 80, damping: 15 }
         }
     };
 
     // ==========================================
     // RENDERIZADO
     // ==========================================
-
     return (
         <section id="skills" className="relative py-20 px-8 md:px-20 lg:px-32 bg-backgroundMain overflow-hidden">
-
+            
             <div className="relative z-10">
                 {/* Título de la sección */}
-                <motion.div
+                <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -66,54 +54,39 @@ const Skills = () => {
                 </motion.div>
 
                 {/* --- BENTO GRID ANIMADO --- */}
-                <motion.div
+                <motion.div 
                     variants={gridVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
                     className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 auto-rows-[110px] md:auto-rows-[140px]"
                 >
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2 row-span-2 bg-secondary/60`}>
-                        <FaReact className={`${iconStyle} text-7xl animate-spin-slow`} />
-                        <h3 className="text-2xl font-bold text-textMain group-hover:text-accent mt-4">React</h3>
-                        <p className="text-sm text-textDim">Frontend Moderno</p>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
-                        <TbBrandCSharp className={iconStyle} />
-                        <h3 className={titleStyle}>C# & .NET</h3>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
-                        <SiTailwindcss className={iconStyle} />
-                        <h3 className={titleStyle}>Tailwind CSS</h3>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
-                        <FaDatabase className={iconStyle} />
-                        <h3 className={titleStyle}>SQL Server & MySQL</h3>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2 md:col-span-2 lg:col-span-2 row-span-2`}>
-                        <HiSparkles className={`${iconStyle} text-6xl mb-4`} />
-                        <h3 className="text-textMain font-semibold text-lg tracking-wide group-hover:text-accent text-center px-4">Prompt Engineering</h3>
-                        <p className="text-xs text-textDim text-center px-4">Desarrollo con IA</p>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={cardStyle}><FaNodeJs className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Node.js</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><MdApi className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">API REST</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><SiVite className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Vite</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><MdOutlineRateReview className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent text-center">Code Review</h3></motion.div>
-
-                    <motion.div variants={cardVariants} className={`${cardStyle} col-span-2`}>
-                        <MdDesignServices className={iconStyle} />
-                        <h3 className={titleStyle}>Diseño UX/UI</h3>
-                    </motion.div>
-
-                    <motion.div variants={cardVariants} className={cardStyle}><MdDevices className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Responsive</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><FaGitAlt className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Git</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><FaGithub className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">GitHub</h3></motion.div>
-                    <motion.div variants={cardVariants} className={cardStyle}><SiScrumalliance className={iconStyle} /><h3 className="text-textMain font-semibold text-sm group-hover:text-accent">Scrum</h3></motion.div>
+                    {skillsData.map((skill, index) => {
+                        const IconComponent = iconMap[skill.icon];
+                        
+                        return (
+                            <motion.div 
+                                key={index} 
+                                variants={cardVariants} 
+                                // Combinamos la base + las clases específicas (col-span, fondos, etc.)
+                                className={`${cardBaseStyle} ${skill.gridClasses || ""}`.trim()}
+                            >
+                                {/* Ícono con sus clases específicas si las tiene (ej: animate-spin) */}
+                                <IconComponent className={`${iconBaseStyle} ${skill.iconClasses || ""}`.trim()} />
+                                
+                                <h3 className={skill.titleClasses}>
+                                    {skill.name}
+                                </h3>
+                                
+                                {/* Renderizado condicional del subtítulo */}
+                                {skill.subtitle && (
+                                    <p className={skill.subtitleClasses}>
+                                        {skill.subtitle}
+                                    </p>
+                                )}
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>
