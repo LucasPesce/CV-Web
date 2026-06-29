@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# 🦉 CV-Web Portfolio | Luc Pesce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Estado](https://img.shields.io/badge/Estado-Producci%C3%B3n-success)
+![React](https://img.shields.io/badge/React-18.x-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.x-f0189a?logo=framer)
 
-Currently, two official plugins are available:
+Portafolio web interactivo desarrollado bajo el paradigma de **Single Page Application (SPA)**. Diseñado para centralizar la presentación de mi perfil profesional como Analista en Sistemas y Frontend Developer, destacando proyectos técnicos, experiencia operativa y habilidades de desarrollo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **[Ver Demo en Vivo](https://lucaspesce.github.io/CV-Web/)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Características Principales
 
-## Expanding the ESLint configuration
+* **Arquitectura Modular:** Componentes reutilizables estructurados para escalabilidad y fácil mantenimiento.
+* **Tipado Estricto:** Implementación de TypeScript para garantizar la integridad de los datos y predecir errores en tiempo de desarrollo.
+* **UI/UX Avanzada:** Maquetación responsiva con Tailwind CSS, priorizando la usabilidad (Mobile-First) y el equilibrio visual.
+* **Animaciones Fluidas:** Transiciones y microinteracciones coreografiadas con Framer Motion (Snap Scrolling, animaciones de entrada y hover states).
+* **Gestión de Datos Desacoplada:** Los datos del portafolio (proyectos, experiencia) se consumen desde archivos estáticos separados de la lógica de renderizado, facilitando futuras actualizaciones.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Stack Tecnológico
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **Core:** React, TypeScript.
+* **Estilos:** Tailwind CSS, CSS Custom Properties (Variables para theming).
+* **Animaciones:** Framer Motion.
+* **Íconos:** React Icons.
+* **Despliegue:** GitHub Pages.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Instalación y Uso Local
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Si deseas clonar este proyecto para explorarlo en un entorno de desarrollo local, sigue estos pasos:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clonar el repositorio:**
+        git clone [https://github.com/lucaspesce/CV-Web.git](https://github.com/lucaspesce/CV-Web.git)
+
+2. **Navegar al directorio:**
+        cd CV-Web
+
+3. **Instalar dependencias:**
+        npm install
+
+4. **Iniciar el servidor de desarrollo:**
+        npm run dev
+
+*El proyecto estará disponible en `http://localhost:5173` (o el puerto configurado por Vite).*
+
+---
+
+## 📁 Estructura del Proyecto
+
+Breve descripción de la organización del código fuente:
+
+    src/
+     ├── components/       # Componentes de UI modulares
+     ├── data/             # Archivos TypeScript con la información estática
+     ├── assets/           # Imágenes, íconos y recursos estáticos
+     ├── App.tsx           # Punto de entrada principal de la SPA
+     └── index.css         # Estilos globales y configuración de Tailwind
+
+---
+
+## 👨‍💻 Autor
+
+**Luc Pesce**
+* Analista en Sistemas | Frontend Developer
+* [LinkedIn](https://www.linkedin.com/in/lucaspesce/)
+* [GitHub](https://github.com/lucaspesce)
+
+---
+*Diseñado y desarrollado con dedicación para reflejar crecimiento profesional continuo.*
