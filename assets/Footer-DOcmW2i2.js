@@ -1,4 +1,4 @@
-import{j as e,i as r,k as o,l,b as n,n as s}from"./index-HKUwQVF0.js";const c=()=>{const{header:a}=r,t=new Date().getFullYear();return e.jsxs("footer",{className:"w-full bg-primary px-8 md:px-20 lg:px-32 pb-8 pt-12",children:[e.jsx("style",{children:`
+import{j as e,i as r,k as o,l,b as n,n as s}from"./index-DMVgluFH.js";const c=()=>{const{header:a}=r,t=new Date().getFullYear();return e.jsxs("footer",{className:"w-full bg-primary px-8 md:px-20 lg:px-32 pb-8 pt-12",children:[e.jsx("style",{children:`
                     @keyframes latidoColor {
                         0%, 100% { 
                             transform: scale(1); 
